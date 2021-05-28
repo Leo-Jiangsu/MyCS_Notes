@@ -158,7 +158,7 @@ int sendbigfile(int fd, int confd)
     //send file 
     
     //send/recv
-    /* sendfilepac(fd, confd); */
+    sendfilepac(fd, confd);
     
     //mmap
     /* sendfilemmap(fd, confd, statbuf.st_size); */
@@ -167,8 +167,8 @@ int sendbigfile(int fd, int confd)
     /* sendfile(confd, fd, 0, statbuf.st_size); */
 
     //splice
-    ret = sendfilesplice(fd, confd, statbuf.st_size);
-    ERROR_CHECK(ret, -1, "sendfilesplice");
+    /* ret = sendfilesplice(fd, confd, statbuf.st_size); */
+    /* ERROR_CHECK(ret, -1, "sendfilesplice"); */
 
 
     return 0;
@@ -201,14 +201,14 @@ int recvfile(int sockfd)
     //recv file
 
     //read/write
-    /* recvfilepac(fd, sockfd, filesize); */
+    recvfilepac(fd, sockfd, filesize);
     
     //mmap
     /* recvfilemmap(fd, sockfd, filesize); */
 
     //splice
-    ret = recvfilesplice(fd, sockfd, filesize);
-    ERROR_CHECK(ret, -1, "sendfilesplice");
+    /* ret = recvfilesplice(fd, sockfd, filesize); */
+    /* ERROR_CHECK(ret, -1, "sendfilesplice"); */
 
     
     gettimeofday(&end, NULL);
